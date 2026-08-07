@@ -1,0 +1,10 @@
+.DS_Store
+._*
+.Trash*
+Thumbs.db
+*.swp
+.obsidian/
+.fuse_hidden*
+__pycache__/
+*.pyc
+.venv/
