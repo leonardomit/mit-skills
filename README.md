@@ -67,10 +67,10 @@ cd skills && zip -r ../analise-carteira-lendarios.skill analise-carteira-lendari
 
 ## Procedência e versões
 
-As skills de ANVISA aqui são a **v2.0 · Jul/2026** que vive no Obsidian Vault — mais densa
-e com hierarquia normativa explícita (RDC 243/2018, IN 28/2018, RDC 843/2024, IN 281/2024).
-A versão instalada na conta Claude ainda é a v1 e **está defasada**: reinstalar a partir
-deste repo para alinhar.
+As skills de ANVISA são a **v2.1 · Ago/2026**: frontmatter corrigido (só `name` e `description`,
+que é o único campo que o Claude usa para disparar a skill) e base regulatória verificada
+contra o AnvisaLegis. A versão instalada na conta Claude ainda é a v1 e **está defasada** —
+reinstalar a partir daqui.
 
 As demais (`analise-carteira-lendarios`, `screener-lendarios`, `produtividade-foco`,
 `markitdown-to-md`) estão idênticas entre conta e vault.
@@ -80,3 +80,13 @@ As demais (`analise-carteira-lendarios`, `screener-lendarios`, `produtividade-fo
 As skills regulatórias reduzem erro operacional e padronizam triagem, mas **não substituem**
 a leitura da norma vigente nem parecer jurídico-regulatório. As skills de investimento são
 análise de processo — não são recomendação de compra ou venda.
+
+## Base regulatória — verificada em ago/2026
+
+- **IN 28/2018** — *vigente com alterações*. 12 alterações: IN 76/2020, 102/2021, 275/2024,
+  284/2024, 304/2024, 318/2024, 336/2024, 373/2025, 418/2025, **431/2026**, **438/2026**,
+  **450/2026**. Sempre usar o texto consolidado do AnvisaLegis.
+- **IN 431/2026** — óleos, polifenóis de açaí e probióticos; novas alegações de vitaminas do complexo B e probióticos.
+- **IN 438/2026** — cúrcuma: extrato e tetraidrocurcuminoides, associação simultânea proibida, limites e advertência obrigatória. Adequação em 6 meses (≈ out/2026).
+- **RDC 990/2025** — altera o art. 32 da RDC 843/2024: notificação de suplementos e alimentos
+  para controle de peso com comunicado anterior à RDC 843/2024 vai **até 1º/09/2026**.
