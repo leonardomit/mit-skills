@@ -46,6 +46,8 @@ projeto e bootstrap de repo.
 - `orca-fluxo.md` — desenho do fluxo Orca.
 - `CLAUDE-exemplo.md` — `CLAUDE.md` de referência com o contexto da empresa.
 - `deep-value-investing-graham-greenwald.md` — nota de referência (Graham / Greenwald).
+- `manual-claude-metodo-completo.md` — manual completo do método de trabalho com Claude.
+- `manual-claude-orchestrador-empresa.md` — manual de implementação do orquestrador empresa.
 
 ---
 
