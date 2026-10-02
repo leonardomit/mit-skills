@@ -10,7 +10,7 @@ Not running until the user asks to `up`. Compose-only is the default when they s
   - `/Volumes/Trabalho/Nextcloud/html` → `/var/www/html`
   - `/Volumes/Trabalho/Nextcloud/db` → `/var/lib/postgresql`
 - Images pinned in `.env`: `NEXTCLOUD_VERSION=31-apache`, `POSTGRES_VERSION=16-alpine`, `REDIS_VERSION=7-alpine`
-- Port: `127.0.0.1:8085:80` (5051–5055 and 5070 are empresa; 9001 is Penpot)
+- Port: `127.0.0.1:8085:80` (5051–5055 and 5070 are other production apps; 9001 is Penpot)
 - Admin: `NEXTCLOUD_ADMIN_*` in `.env`. Trusted domains include Tailscale hostname.
 - `restart: unless-stopped` so it does not appear until the first `up`.
 

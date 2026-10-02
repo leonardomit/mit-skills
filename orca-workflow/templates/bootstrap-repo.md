@@ -16,7 +16,7 @@ Checklist antes do primeiro `/plan-tickets`:
 ln -s CLAUDE.md AGENTS.md   # Codex/Grok leem AGENTS.md
 ```
 
-- [ ] Se o projeto NÃO for da empresa: apagar a seção "Conformidade empresa" do CLAUDE.md
+- [ ] Preencher ou apagar a seção "Conformidade regulatória/marca do projeto" do CLAUDE.md conforme o caso
 
 - [ ] Definir permissão do repo no Orca: Yolo (isolado, sem segredos) ou Manual (integrações reais) — ver SETUP §3
 

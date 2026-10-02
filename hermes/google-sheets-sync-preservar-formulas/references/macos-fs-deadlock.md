@@ -43,10 +43,10 @@ python3 -c "open('/caminho/arquivo.xlsx', 'rb').read(16)"
 
 ```bash
 # Abrir todos os arquivos travados de uma vez
-open -a Numbers "/Users/usuario/Documents/Obsidian Vault/empresa/relatorio-a.xlsx"
-open -a Numbers "/Users/usuario/Documents/Obsidian Vault/empresa/relatorios-b2b/_relatorio-b.xlsx"
-open -a Numbers "/Users/usuario/Documents/Obsidian Vault/empresa/relatorios-b2b/relatorio-c_ PRODUTOS POR MÊS.xlsx"
-open -a Numbers "/Users/usuario/Documents/Obsidian Vault/empresa/relatorios-b2c/relatorio-d_ PRODUTOS POR MÊS.xlsx"
+open -a Numbers "/Users/<usuario>/Documents/Obsidian Vault/<projeto>/relatorio-a.xlsx"
+open -a Numbers "/Users/<usuario>/Documents/Obsidian Vault/<projeto>/relatorio-b.xlsx"
+open -a Numbers "/Users/<usuario>/Documents/Obsidian Vault/<projeto>/relatorio-c.xlsx"
+open -a Numbers "/Users/<usuario>/Documents/Obsidian Vault/<projeto>/relatorio-d.xlsx"
 
 # Aguardar 10-15s para os apps terminarem o load, depois testar:
 python3 -c "import openpyxl; wb=openpyxl.load_workbook('...arquivo.xlsx...', data_only=True); print(wb.sheetnames)"
@@ -65,16 +65,16 @@ python3 -c "import openpyxl; wb=openpyxl.load_workbook('...arquivo.xlsx...', dat
 2. Aguardar 15-20min (Time Machine / cloudd passam sozinhos às vezes)
 3. Reiniciar o Mac
 
-## Caso real (2026-06-26 — empresa) — UPDATED
+## Caso real (2026-06-26) — UPDATED
 
-Sessão de sync travou em 4 arquivos `.xlsx` simultaneamente no path `~/Documents/Obsidian Vault/empresa/`:
+Sessão de sync travou em 4 arquivos `.xlsx` simultaneamente no path `~/Documents/Obsidian Vault/<projeto>/`:
 
 1. `relatorio-a.xlsx`
-2. `_relatorio-b.xlsx`
-3. `relatorio-c_ PRODUTOS POR MÊS.xlsx`
-4. `relatorio-d_ PRODUTOS POR MÊS.xlsx`
+2. `relatorio-b.xlsx`
+3. `relatorio-c.xlsx`
+4. `relatorio-d.xlsx`
 
-Dry-run OK em 2 dos 4 (B2B Mensal + relatorio-c) — depois apply travou em todos. `killall Finder` não resolveu. Reinício do Mac também NÃO resolveu — todos os 4 continuaram travados pós-boot.
+Dry-run OK em 2 dos 4 — depois apply travou em todos. `killall Finder` não resolveu. Reinício do Mac também NÃO resolveu — todos os 4 continuaram travados pós-boot.
 
 **Solução que funcionou:** `open -a Numbers` em cada arquivo, esperar 15s, e os 4 voltaram a ser lidos pelo openpyxl. Sync então rodou sem erros: 1.323 células aplicadas em 5,9s.
 

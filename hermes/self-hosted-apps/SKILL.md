@@ -31,7 +31,7 @@ Install third-party self-hosted tools the same way: official Compose, isolated f
   README.md             # start/stop + URLs
 ```
 
-empresa production apps already occupy **5051–5055**. Pick a free port; never reuse those.
+Other production apps already occupy **5051–5055**. Pick a free port; never reuse those.
 
 Bind published ports to loopback:
 
