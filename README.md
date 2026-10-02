@@ -1,8 +1,9 @@
 # mit-skills
 
 Skills, agentes e workflows de autoria própria para Claude (Cowork / Claude Code).
-Repositório **privado** — contém material regulatório interno da empresa e critérios
-pessoais de investimento.
+Repositório **privado** — critérios pessoais de investimento, produtividade e automações
+de infraestrutura. Material específico da empresa (regulatório, comercial, criativos)
+vive em repo separado (`fito-skills`), para permitir compartilhar este aqui no futuro.
 
 > **Escopo:** só entra aqui o que foi escrito por mim. Skills de terceiros instaladas na
 > conta (ui-ux-pro-max, gpt-taste, emil-design-eng, karpathy-guidelines, llm-council,
@@ -17,10 +18,6 @@ Formato Claude Agent Skill (`SKILL.md` com frontmatter `name` + `description`).
 
 | Skill | O que faz |
 |---|---|
-| `adequacao-anvisa-suplementos-importados` | Análise regulatória de suplementos para o mercado BR: enquadramento, constituintes autorizados, limites da IN 28, riscos de rotulagem, checklist de submissão. Foco em importados e private label. |
-| `avaliacao-formula-suplementos-anvisa` | Avaliação de fórmula de suplemento contra os limites e constituintes permitidos pela ANVISA. |
-| `conferencia-rotulos-anvisa` | Conferência de rótulos e embalagens de suplementos contra as normas vigentes. |
-| `conferencia-marketing-anvisa-suplementos` | Revisão técnico-regulatória de peças de marketing (anúncios, carrosséis, PDPs, scripts) — classifica em conforme / ajuste recomendado / não conforme / depende de validação. |
 | `analise-carteira-lendarios` | Auditoria de carteira e teses pelas lentes de Simons, Druckenmiller, Buffett, Lynch, Verde, Dynamo e Barsi. Score 0–10 por dimensão. Análise de processo, não recomendação. |
 | `screener-lendarios` | Shortlist de ativos-candidatos aplicando os filtros quantitativos dos mesmos investidores. Todo número vem de busca feita na conversa, com data. |
 | `produtividade-foco` | 7 prompts de função executiva: paralisia de tarefas, brain dump, body doubling, menu de dopamina, estimativa de tempo. |
@@ -28,6 +25,10 @@ Formato Claude Agent Skill (`SKILL.md` com frontmatter `name` + `description`).
 | `orquestracao-claude-code` | Roteamento multimodelo no Claude Code/Cowork: delegação a subagentes Haiku/Sonnet/Opus por impacto/complexidade, revisor em Agent novo, gate humano via AskUserQuestion. |
 | `orquestracao-hermes` | Roteamento para automações do Hermes: modelo local para volume, API para julgamento, fila de exceções, handoff para Claude Code. Hermes nunca executa impacto 3. |
 | `orquestracao-orca` | Roteamento no Orca ADE: qual CLI agent por classe, fan-out em worktrees, revisão cruzada por família diferente, merge só humano. |
+
+Também na raiz, empacotadas como `.skill`: `financeiro-decisao` (precificação, viabilidade,
+comparativo tributário — empresa brasileira genérica) e `financeiro-rotina` (DRE, fluxo de
+caixa, fechamento mensal, SOP financeiro).
 
 ## hermes/
 
@@ -39,14 +40,6 @@ Skills de autoria própria do Hermes. Não misturar com `skills/` (Claude). Skil
 | `laya-classificador-modelos` | Laya rotula a tarefa. Só pesquisa, leitura de documento e extração local viram provedor. O resto não. |
 | `orquestracao-worktree` | Orquestra worktree no Orca: escolhe o modelo real (GPT-6, Claude 5, Grok, Ollama, Laya) e dispara o worker. |
 | `orquestracao-multimodelo` | Roteamento fora do Orca. Mantém Haiku/Sonnet/Opus e usa o catálogo desta máquina se o modelo nomeado não existir. |
-| `gerente-comercial-b2b` | Análise e plano comercial B2B (lojistas e distribuidores). |
-| `gerente-comercial-ecommerce` | Análise B2C: site, marketplaces, Meta Ads, SKU e dashboard. |
-| `sugestoes-criativas-publicitarias` | Ideias e peças de campanha da empresa. |
-| `referencias-criativos-ads` | Captura de referências de criativos para replicar depois. |
-| `referencias-implementacoes` | Captura de referências implementáveis (ferramentas e funções). |
-| `chief-of-staff-workflows` | Os 9 fluxos do chefe de gabinete. |
-| `empresa-rag` | Dois RAGs locais, equipe e confidencial. |
-| `google-sheets` | Sheets via service account neste ambiente. |
 | `google-sheets-sync-preservar-formulas` | Sync de planilha local para Sheets sem apagar fórmula de total. |
 | `instagram-afiliados` | Páginas de afiliados no Instagram, fora da marca empresa. |
 | `daily-journal-obsidian-gbrain` | Journal noturno: Obsidian e gbrain. |
@@ -63,9 +56,6 @@ Skills de autoria própria do Hermes. Não misturar com `skills/` (Claude). Skil
 Personas e orquestradores (mesmo formato de frontmatter, usados como subagentes).
 
 - `comite-lendarios` — analista que audita decisões de investimento; par do `screener-lendarios`.
-- `claude-orquestrador-empresa` — orquestrador lite: separa contexto fixo de variável e roteia tarefas.
-- `empresa-loop-orchestrator` — orquestrador avançado com intake estruturado e loop de execução.
-- `empresa/` — quadro de agentes da empresa: `ceo`, `cto`, `chief-of-staff`, `comercial-b2b`, `comercial-digital`, `criativos-publicidade`.
 
 ## orca-workflow/
 
@@ -76,10 +66,8 @@ projeto e bootstrap de repo.
 ## docs/
 
 - `orca-fluxo.md` — desenho do fluxo Orca.
-- `CLAUDE-exemplo.md` — `CLAUDE.md` de referência com o contexto da empresa.
 - `deep-value-investing-graham-greenwald.md` — nota de referência (Graham / Greenwald).
 - `manual-claude-metodo-completo.md` — manual completo do método de trabalho com Claude.
-- `manual-claude-orchestrador-empresa.md` — manual de implementação do orquestrador empresa.
 
 ---
 
@@ -97,18 +85,6 @@ Ou empacotar como `.skill` (zip com a pasta na raiz) para subir pela interface:
 cd skills && zip -r ../analise-carteira-lendarios.skill analise-carteira-lendarios
 ```
 
-## Procedência e versões
-
-As skills de ANVISA aqui são a **v2.0 · Jul/2026** que vive no Obsidian Vault — mais densa
-e com hierarquia normativa explícita (RDC 243/2018, IN 28/2018, RDC 843/2024, IN 281/2024).
-A versão instalada na conta Claude ainda é a v1 e **está defasada**: reinstalar a partir
-deste repo para alinhar.
-
-As demais (`analise-carteira-lendarios`, `screener-lendarios`, `produtividade-foco`,
-`markitdown-to-md`) estão idênticas entre conta e vault.
-
 ## Aviso
 
-As skills regulatórias reduzem erro operacional e padronizam triagem, mas **não substituem**
-a leitura da norma vigente nem parecer jurídico-regulatório. As skills de investimento são
-análise de processo — não são recomendação de compra ou venda.
+As skills de investimento são análise de processo — não são recomendação de compra ou venda.
