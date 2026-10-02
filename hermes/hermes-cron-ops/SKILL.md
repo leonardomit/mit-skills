@@ -57,7 +57,7 @@ Ops: skill `daily-journal-obsidian-gbrain`. Não anexar `chief-of-staff-workflow
 
 ## Intel mercado suplementos
 
-Job `cffeb772f91e` — `0 7 * * 1`. Vault: `empresa/Inteligência de Mercado/YYYY-MM-DD.md`. Toolsets: `web`, `terminal`, `file`. Se drift_skip: pin + run.
+Job `cffeb772f91e` — `0 7 * * 1`. Vault: `<projeto>/Inteligência de Mercado/YYYY-MM-DD.md`. Toolsets: `web`, `terminal`, `file`. Se drift_skip: pin + run.
 
 ## Verificação
 

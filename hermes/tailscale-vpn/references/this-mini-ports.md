@@ -8,7 +8,7 @@ Only **443, 8443, 10000**. `funnel --https=8085` looks on (even `curl` from the 
 
 Nextcloud public: `https://<tailnet-host>:8443` → `http://127.0.0.1:8085`.
 
-Do not Funnel empresa 5051–5055.
+Do not Funnel the production app ports 5051–5055.
 
 ## Tailnet serve (not Funnel)
 

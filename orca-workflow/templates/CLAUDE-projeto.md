@@ -66,8 +66,8 @@ Decisão técnica tomada durante um ticket → registrar em `docs/DECISIONS.md` 
 
 ---
 
-## Conformidade empresa — APAGAR esta seção se o projeto não for da empresa
+## Conformidade regulatória/marca do projeto — preencher se aplicável, apagar se não
 
-- Todo texto de produto/comunicação (rotulagem, copy, e-mail, UI) passa pelo filtro **ANVISA**: sem alegação de cura/prevenção/tratamento; alegação funcional só da lista autorizada; na dúvida → `TODO(humano: revisão compliance/RT)`. Nunca validar alegação fora da lista.
-- Integrações fiscais/ERP (ERP, Bling, NF-e, loja virtual): **escrita = gate humano**; leitura livre conforme o ticket. ERP tem rate limit agressivo (`MISUSE_API_PROCESS` bloqueia 30 min) — usar backoff.
-- Identidade visual (kit v2): cor primária `#XXXXXX` · cor secundária `#XXXXXX` · Amarelo Sol `#XXXXXX` · fundos Areia/Verde Névoa · tipografia Serif + Sans.
+- Se o projeto lida com produto/comunicação regulada (saúde, alimentos, financeiro etc.): descrever aqui o filtro obrigatório (claims proibidos, lista de alegações autorizadas, gate humano para dúvida).
+- Integrações fiscais/ERP com escrita: **escrita = gate humano**; leitura livre conforme o ticket. Anotar rate limits conhecidos.
+- Identidade visual (cores, tipografia) do projeto, se houver kit de marca.
