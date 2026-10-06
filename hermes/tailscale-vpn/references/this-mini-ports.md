@@ -16,11 +16,11 @@ Match **app ports**, not 805x:
 
 | App | Local | Serve HTTPS |
 |---|---|---|
-| relatorio-a | 5053 | `:443` and `:5053` |
-| Lotes v2 | 5051 | `:5051` |
-| OPs | 5052 | `:5052` |
-| Rótulo fácil | 5054 | `:5054` |
-| CRM | 5055 | `:5055` |
+| app-1 | 5053 | `:443` and `:5053` |
+| app-2 | 5051 | `:5051` |
+| app-3 | 5052 | `:5052` |
+| app-4 | 5054 | `:5054` |
+| app-5 | 5055 | `:5055` |
 | Nextcloud | 127.0.0.1:8085 | Funnel `:8443` only |
 
 `tailscale serve --https=N off` or `funnel --https=N off` can **drop sibling mappings**. Restore 5051–5055 after any off.
