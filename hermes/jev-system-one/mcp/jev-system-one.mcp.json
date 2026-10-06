@@ -1,0 +1,34 @@
+{
+  "name": "jev-system-one",
+  "status": "reference-only-not-installed",
+  "purpose": "Typed advisory classification, scoring, routing and closed-choice decisions.",
+  "reference_plugin": {
+    "repo": "https://github.com/ourines/hermes-jev",
+    "version": "0.1.2",
+    "tool": "jev_evaluate",
+    "note": "Community Hermes plugin; it is not an MCP server and is not installed by this manifest."
+  },
+  "input_schema": {
+    "task": "string",
+    "options": [
+      "explicit closed labels"
+    ],
+    "context": "sanitized minimum necessary context"
+  },
+  "output_schema": {
+    "choice": "string",
+    "probabilities": {
+      "label": "number"
+    },
+    "confidence": "number 0-1 (choice/score only; noul has none)",
+    "abstain_rule": "confidence < 0.6 -> human queue (model ignores explicit abstain options)"
+  },
+  "guardrails": [
+    "Validate the output schema before use.",
+    "Route low-confidence or abstain results to a human.",
+    "Public text only by default; email/CRM/ERP go to local classifier unless explicitly approved.",
+    "Do not transmit confidential or personal data to a third-party classifier.",
+    "Do not let the classifier execute external actions directly."
+  ],
+  "skill": "skills/jev-system-one/SKILL.md (canonical, v2.0)"
+}
