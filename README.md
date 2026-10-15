@@ -26,6 +26,7 @@ Formato Claude Agent Skill (`SKILL.md` com frontmatter `name` + `description`).
 | `orquestracao-hermes` | Roteamento para automações do Hermes: modelo local para volume, API para julgamento, fila de exceções, handoff para Claude Code. Hermes nunca executa impacto 3. |
 | `orquestracao-orca` | Roteamento no Orca ADE: qual CLI agent por classe, fan-out em worktrees, revisão cruzada por família diferente, merge só humano. |
 | `jev-system-one` | Jev/System One (TypeSafe) como classificador tipado e consultivo: política de dados, gatilhos de urgência, protocolo de teste. Pacote Hermes (manifesto MCP) em `hermes/jev-system-one/`. |
+| `criacao-de-marca-e-manual` | Cria ou revisa identidade de marca: entrevista de voz, paleta, tipografia, logo, kit de marca (.md), manual (Paper/HTML), design system, papelaria e kit web. |
 
 Também na raiz, empacotadas como `.skill`: `financeiro-decisao` (precificação, viabilidade,
 comparativo tributário — empresa brasileira genérica) e `financeiro-rotina` (DRE, fluxo de
