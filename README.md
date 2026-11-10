@@ -22,15 +22,13 @@ Formato Claude Agent Skill (`SKILL.md` com frontmatter `name` + `description`).
 | `screener-lendarios` | Shortlist de ativos-candidatos aplicando os filtros quantitativos dos mesmos investidores. Todo número vem de busca feita na conversa, com data. |
 | `produtividade-foco` | 7 prompts de função executiva: paralisia de tarefas, brain dump, body doubling, menu de dopamina, estimativa de tempo. |
 | `markitdown-to-md` | Converte PDF/DOCX/PPTX/XLSX para Markdown via MarkItDown antes da leitura, para economizar contexto. Inclui `scripts/convert_to_md.py`. |
-| `orquestracao-claude-code` | Roteamento multimodelo no Claude Code/Cowork: delegação a subagentes Haiku/Sonnet/Opus por impacto/complexidade, revisor em Agent novo, gate humano via AskUserQuestion. |
 | `orquestracao-hermes` | Roteamento para automações do Hermes: modelo local para volume, API para julgamento, fila de exceções, handoff para Claude Code. Hermes nunca executa impacto 3. |
-| `orquestracao-orca` | Roteamento no Orca ADE: qual CLI agent por classe, fan-out em worktrees, revisão cruzada por família diferente, merge só humano. |
+| `roteamento-modelos` | **Fonte única de modelos.** IDs desta máquina, cadeias de fallback por conta (cota acabou → outra conta), regra API × assinatura, nós locais (Mac mini + GTX 1070 via PAIR), Jev e Laya. As demais skills apontam para as cadeias e não citam modelo. |
+| `orquestracao-multimodelo` | Método fora do Orca (Claude Code, Cowork, Hermes): classificação 0–3, pipeline, executor × revisor de outra família, escalonamento, gate humano. Junta as antigas `orquestracao-claude-code` e `orquestracao-multimodelo` (Hermes). |
+| `orquestrador-orca` | **Skill única do Orca.** Claude ou Hermes orquestram; Jev/Laya para decisões fechadas; workers Claude, Codex e Grok em janelas/worktrees; papel → cadeia da `roteamento-modelos`; revisão por outra família; gate humano. Absorveu `orquestracao-worktree`. |
 | `jev-system-one` | Jev/System One (TypeSafe) como classificador tipado e consultivo: política de dados, gatilhos de urgência, protocolo de teste. Pacote Hermes (manifesto MCP) em `hermes/jev-system-one/`. |
 | `criacao-de-marca-e-manual` | Cria ou revisa identidade de marca: entrevista de voz, paleta, tipografia, logo, kit de marca (.md), manual (Paper/HTML), design system, papelaria e kit web. |
-
-Também na raiz, empacotadas como `.skill`: `financeiro-decisao` (precificação, viabilidade,
-comparativo tributário — empresa brasileira genérica) e `financeiro-rotina` (DRE, fluxo de
-caixa, fechamento mensal, SOP financeiro).
+| `financeiro-tributario-brasil` | Finanças e tributos de empresa brasileira genérica, em três módulos: rotina (DRE, fluxo de caixa, fechamento, SOP), decisão (preço, viabilidade, orçamento, Presumido × Real) e tributário (regime, ICMS/ST/DIFAL, PIS/COFINS, reforma CBS/IBS/IS, NCM/CFOP/CST, parametrização de ERP). Substitui `financeiro-decisao` e `financeiro-rotina` (arquivadas em `../arquivados/financeiro-nov2026/`). |
 
 ## hermes/
 
@@ -40,8 +38,6 @@ Skills de autoria própria do Hermes. Não misturar com `skills/` (Claude). Skil
 |---|---|
 | `laya-triagem` | Classificador local Laya no Mac mini. Prefere caminho de arquivo e devolve só rótulo. |
 | `laya-classificador-modelos` | Laya rotula a tarefa. Só pesquisa, leitura de documento e extração local viram provedor. O resto não. |
-| `orquestracao-worktree` | Orquestra worktree no Orca: escolhe o modelo real (GPT-6, Claude 5, Grok, Ollama, Laya) e dispara o worker. |
-| `orquestracao-multimodelo` | Roteamento fora do Orca. Mantém Haiku/Sonnet/Opus e usa o catálogo desta máquina se o modelo nomeado não existir. |
 | `google-sheets-sync-preservar-formulas` | Sync de planilha local para Sheets sem apagar fórmula de total. |
 | `instagram-afiliados` | Páginas de afiliados no Instagram, fora da marca empresa. |
 | `daily-journal-obsidian-gbrain` | Journal noturno: Obsidian e gbrain. |
@@ -59,15 +55,15 @@ Personas e orquestradores (mesmo formato de frontmatter, usados como subagentes)
 
 - `comite-lendarios` — analista que audita decisões de investimento; par do `screener-lendarios`.
 
+> Arquivadas em 05/11/2026 (em `Skills/arquivados/orquestracao-nov2026/`, fora do repo): `orquestracao-claude-code`, `orquestracao-worktree`, `orquestracao-multimodelo` (versão Hermes e o `.skill` da raiz) e `docs/orca-fluxo.md`.
+
 ## orca-workflow/
 
-Projeto autocontido de orquestração por tickets: `README.md`, `PLAYBOOK.md`, `SETUP.md`,
-as skills `plan-tickets` e `orchestrate-tickets`, e os templates de ticket, `CLAUDE.md` de
-projeto e bootstrap de repo.
+Kit de apoio: `README.md`, `PLAYBOOK.md`, `SETUP.md` e templates (ticket, `CLAUDE.md` de projeto,
+bootstrap de repo). As skills de execução foram unificadas em `skills/orquestrador-orca`.
 
 ## docs/
 
-- `orca-fluxo.md` — desenho do fluxo Orca.
 - `deep-value-investing-graham-greenwald.md` — nota de referência (Graham / Greenwald).
 - `manual-claude-metodo-completo.md` — manual completo do método de trabalho com Claude.
 
